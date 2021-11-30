@@ -1,4 +1,3 @@
-export type { address } from './address';
 export type { capsules } from './capsules';
 export type { cores } from './cores';
 export type { crew } from './crew';

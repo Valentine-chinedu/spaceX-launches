@@ -1,8 +1,7 @@
-import { address } from './address';
 import { link } from './link';
 
 export interface info {
-	headquarters: address[];
+	headquarters: string[];
 	links: link[];
 	name: string;
 	founder: string;
