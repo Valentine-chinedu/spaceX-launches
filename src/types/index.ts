@@ -12,3 +12,4 @@ export type { rockets } from './rockets';
 export type { ships } from './ships';
 export type { starLinks } from './starLinks';
 export type { time } from './time';
+export type { dropdownElement } from './dropDown';
