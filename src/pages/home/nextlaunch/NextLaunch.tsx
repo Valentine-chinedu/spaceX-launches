@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import * as moment from 'moment';
+import moment from 'moment';
 import 'moment-precise-range-plugin';
 import { useNextLaunch } from '../../../services/Queries';
 import { time } from '../../../types';
@@ -29,15 +29,15 @@ const NextLaunch = () => {
 	// };
 
 	const [timer, setTimer] = useState<time>(initialTime);
-	const dateLocal = data!.date_local;
+	const dateLocal = data?.date_local;
 
 	const timeDiff = useCallback(() => {
-		const launchDate = new Date(dateLocal);
-		const currentDate = new Date();
+		const launchDate = moment(dateLocal);
+		const currentDate = moment(Date.now());
 		const diff = moment.preciseDiff(launchDate, currentDate, true);
 
 		return diff;
-	}, [moment, dateLocal]);
+	}, [dateLocal]);
 
 	useEffect(() => {
 		const timeDifference = timeDiff;
@@ -53,7 +53,7 @@ const NextLaunch = () => {
 
 	return (
 		<div>
-			<LaunchName launchName={data!.name} dateLocal={data!.date_local} />
+			<LaunchName launchName={data?.name} dateLocal={data?.date_local} />
 
 			<CountDown
 				days={timer.days}

@@ -27,7 +27,7 @@ const fetchNextLaunch = async () => {
 	return response.data;
 };
 export const useNextLaunch = () =>
-	useQuery<any, Error, launches>('query-nextlaunch', fetchNextLaunch);
+	useQuery<launches, Error>('query-nextlaunch', fetchNextLaunch);
 
 const fetchLatestLaunch = async () => {
 	const response = await apiclient.get('/launches/next/latest');

@@ -1,11 +1,13 @@
+import moment from 'moment';
+
 type launchNameProps = {
-	launchName: string;
-	dateLocal: string;
+	launchName: string | undefined;
+	dateLocal: string | undefined;
 };
 
 const LaunchName = ({ launchName, dateLocal }: launchNameProps) => {
 	const isAfterLaunch = (): boolean => {
-		if (new Date() > new Date(dateLocal)) return true;
+		if (moment() > moment(dateLocal)) return true;
 		else return false;
 	};
 	return (
