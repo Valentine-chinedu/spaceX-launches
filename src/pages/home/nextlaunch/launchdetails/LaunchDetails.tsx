@@ -3,7 +3,7 @@ import Details from './Details';
 import { launchDetailsProps } from './launcheDetailsTypes';
 
 const LaunchDetails = ({ launch }: launchDetailsProps) => {
-	const [showlaunchDetails, setShowLaunchDetails] = useState(false);
+	// const [showlaunchDetails, setShowLaunchDetails] = useState(false);
 
 	return (
 		<>

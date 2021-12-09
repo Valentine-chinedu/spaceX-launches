@@ -17,7 +17,7 @@ const initialTime: time = {
 };
 
 const NextLaunch = () => {
-	const { data } = useNextLaunch();
+	const nextLaunch = useNextLaunch();
 
 	// const [showLivestream, setShowlivestream] = useState(false);
 	// const [isTwoMinutesBeforeStart, setIsTwoMinutesBeforeStart] = useState(false);
@@ -29,7 +29,7 @@ const NextLaunch = () => {
 	// };
 
 	const [timer, setTimer] = useState<time>(initialTime);
-	const dateLocal = data?.date_local;
+	const dateLocal = nextLaunch.data?.date_local;
 
 	const timeDiff = useCallback(() => {
 		const launchDate = moment(dateLocal);
@@ -53,7 +53,10 @@ const NextLaunch = () => {
 
 	return (
 		<div>
-			<LaunchName launchName={data?.name} dateLocal={data?.date_local} />
+			<LaunchName
+				launchName={nextLaunch.data?.name}
+				dateLocal={nextLaunch.data?.date_local}
+			/>
 
 			<CountDown
 				days={timer.days}
