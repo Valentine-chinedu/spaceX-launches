@@ -20,41 +20,48 @@ const fetchLaunches = async () => {
 	return response.data;
 };
 export const useLaunches = () =>
-	useQuery<launches, Error>('query-launches', fetchLaunches);
+	useQuery<launches[], Error>('query-launches', fetchLaunches);
 
-const fetchNextLaunch = async () => {
+const fetchPastLaunches = async () => {
+	const response = await apiclient.get('/launches/past');
+	return response.data;
+};
+export const usePastLaunches = () =>
+	useQuery<launches[], Error>('query-past-launches', fetchPastLaunches);
+
+const fetchNextLaunches = async () => {
 	const response = await apiclient.get('/launches/next');
 	return response.data;
 };
 export const useNextLaunch = () =>
-	useQuery<launches, Error>('query-nextlaunch', fetchNextLaunch);
+	useQuery<launches, Error>('query-nextlaunch', fetchNextLaunches);
 
-const fetchLatestLaunch = async () => {
+const fetchLatestLaunches = async () => {
 	const response = await apiclient.get('/launches/next/latest');
 	return response.data;
 };
-export const useLatestLaunch = () =>
-	useQuery<launches, Error>('query-latestlaunch', fetchLatestLaunch);
+export const useLatestLaunches = () =>
+	useQuery<launches[], Error>('query-latestlaunch', fetchLatestLaunches);
 
-const fetchUpcomingLaunch = async () => {
+const fetchUpcomingLaunches = async () => {
 	const response = await apiclient.get('/launches/next/upcoming');
 	return response.data;
 };
-export const useUpcomingLaunch = () =>
-	useQuery<launches, Error>('query-latestlaunch', fetchUpcomingLaunch);
+export const useUpcomingLaunches = () =>
+	useQuery<launches[], Error>('query-latestlaunch', fetchUpcomingLaunches);
 
 const fetchInfo = async () => {
 	const response = await apiclient.get('/company');
 	return response.data;
 };
-export const useInfo = () => useQuery<info, Error>('query-info', fetchInfo);
+export const useInfo = () => useQuery<info[], Error>('query-info', fetchInfo);
 
 const fetchCapsules = async () => {
 	const response = await apiclient.get('/capsules');
 	return response.data;
 };
 export const useCapsules = () =>
-	useQuery<capsules, Error>('query-capsules', fetchCapsules);
+	useQuery<capsules[], Error>('query-capsules', fetchCapsules);
 
 const fetchCores = async () => {
 	const response = await apiclient.get('/cores');
@@ -73,35 +80,35 @@ const fetchLandPads = async () => {
 	return response.data;
 };
 export const useLandPads = () =>
-	useQuery<landPads, Error>('query-landpads', fetchLandPads);
+	useQuery<landPads[], Error>('query-landpads', fetchLandPads);
 
 const fetchLaunchPads = async () => {
 	const response = await apiclient.get('/launchpads');
 	return response.data;
 };
 export const useLaunchPads = () =>
-	useQuery<launchPads, Error>('query-launchpads', fetchLaunchPads);
+	useQuery<launchPads[], Error>('query-launchpads', fetchLaunchPads);
 
 const fetchPayLoads = async () => {
 	const response = await apiclient.get('/payloads');
 	return response.data;
 };
 export const usePayLoads = () =>
-	useQuery<payLoads, Error>('query-payloads', fetchPayLoads);
+	useQuery<payLoads[], Error>('query-payloads', fetchPayLoads);
 
 const fetchRoadSter = async () => {
 	const response = await apiclient.get('/roadster');
 	return response.data;
 };
 export const useRoadSter = () =>
-	useQuery<roadSter, Error>('query-roadster', fetchRoadSter);
+	useQuery<roadSter[], Error>('query-roadster', fetchRoadSter);
 
 const fetchRockets = async () => {
 	const response = await apiclient.get('/rockets');
 	return response.data;
 };
 export const useRockets = () =>
-	useQuery<rockets, Error>('query-rockets', fetchRockets);
+	useQuery<rockets[], Error>('query-rockets', fetchRockets);
 
 const fetchShips = async () => {
 	const response = await apiclient.get('/ships');
@@ -114,4 +121,4 @@ const fetchStarLink = async () => {
 	return response.data;
 };
 export const useStarLink = () =>
-	useQuery<starLinks, Error>('query-starlink', fetchStarLink);
+	useQuery<starLinks[], Error>('query-starlink', fetchStarLink);
