@@ -2,12 +2,12 @@ import React, { useCallback, useEffect, useState } from 'react';
 import moment from 'moment';
 import 'moment-precise-range-plugin';
 import { useNextLaunch } from '../../../../services/Queries';
-import { time } from '../../../../types';
+import { Time } from '../../../../types';
 import LaunchName from './components/launchname/LaunchName';
 import CountDown from './components/countdown/CountDown';
 // import LaunchDetails from './components/launchdetails/LaunchDetails';
 
-const initialTime: time = {
+const initialTime: Time = {
 	days: 0,
 	firstDateWasLater: true,
 	hours: 4,
@@ -29,7 +29,7 @@ const NextLaunch = () => {
 	// 	setShowlivestream(!showLivestream);
 	// };
 
-	const [timer, setTimer] = useState<time>(initialTime);
+	const [timer, setTimer] = useState<Time>(initialTime);
 	const dateLocal = nextLaunch.data?.date_local;
 
 	const timeDiff = useCallback(() => {
