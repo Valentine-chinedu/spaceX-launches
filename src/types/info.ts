@@ -1,8 +1,8 @@
-import { link } from './link';
+import { Link } from './link';
 
-export interface info {
+export interface Info {
 	headquarters: string[];
-	links: link[];
+	links: Link[];
 	name: string;
 	founder: string;
 	founded: string;

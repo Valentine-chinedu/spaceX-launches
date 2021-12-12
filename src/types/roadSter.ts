@@ -1,4 +1,4 @@
-export interface roadSter {
+export interface RoadSter {
 	flickr_images: string[];
 	name: string;
 	launch_date_utc: string;

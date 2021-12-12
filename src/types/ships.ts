@@ -1,4 +1,4 @@
-export interface ships {
+export interface Ships {
 	legacy_id: string;
 	model: null;
 	type: string;

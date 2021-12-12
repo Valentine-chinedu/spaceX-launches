@@ -1,4 +1,4 @@
-export interface launchPads {
+export interface LaunchPads {
 	name: string;
 	full_name: string;
 	locality: string;

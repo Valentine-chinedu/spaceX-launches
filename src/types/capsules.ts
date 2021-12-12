@@ -1,6 +1,6 @@
 import { launches } from './launches';
 
-export interface capsules {
+export interface Capsules {
 	reuse_count: number;
 	water_landings: number;
 	land_landings: number;

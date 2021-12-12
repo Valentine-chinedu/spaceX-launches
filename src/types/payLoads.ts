@@ -1,4 +1,4 @@
-export interface payLoads {
+export interface PayLoads {
 	dragon: {
 		capsule: null;
 		mass_returned_kg: null;

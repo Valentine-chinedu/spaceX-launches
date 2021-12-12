@@ -1,17 +1,17 @@
 import { useQuery } from 'react-query';
 import {
-	capsules,
-	cores,
-	crew,
-	info,
-	landPads,
+	Capsules,
+	Cores,
+	Crew,
+	Info,
+	LandPads,
 	launches,
-	launchPads,
-	payLoads,
-	roadSter,
-	rockets,
-	ships,
-	starLinks,
+	LaunchPads,
+	PayLoads,
+	RoadSter,
+	Rockets,
+	Ships,
+	StarLinks,
 } from '../types';
 import { apiclient } from './Api';
 
@@ -54,71 +54,71 @@ const fetchInfo = async () => {
 	const response = await apiclient.get('/company');
 	return response.data;
 };
-export const useInfo = () => useQuery<info[], Error>('query-info', fetchInfo);
+export const useInfo = () => useQuery<Info[], Error>('query-info', fetchInfo);
 
 const fetchCapsules = async () => {
 	const response = await apiclient.get('/capsules');
 	return response.data;
 };
 export const useCapsules = () =>
-	useQuery<capsules[], Error>('query-capsules', fetchCapsules);
+	useQuery<Capsules[], Error>('query-capsules', fetchCapsules);
 
 const fetchCores = async () => {
 	const response = await apiclient.get('/cores');
 	return response.data;
 };
-export const useCores = () => useQuery<cores, Error>('query-cores', fetchCores);
+export const useCores = () => useQuery<Cores, Error>('query-cores', fetchCores);
 
 const fetchCrew = async () => {
 	const response = await apiclient.get('/crew');
 	return response.data;
 };
-export const useCrew = () => useQuery<crew, Error>('query-crew', fetchCrew);
+export const useCrew = () => useQuery<Crew, Error>('query-crew', fetchCrew);
 
 const fetchLandPads = async () => {
 	const response = await apiclient.get('/landpads');
 	return response.data;
 };
 export const useLandPads = () =>
-	useQuery<landPads[], Error>('query-landpads', fetchLandPads);
+	useQuery<LandPads[], Error>('query-landpads', fetchLandPads);
 
 const fetchLaunchPads = async () => {
 	const response = await apiclient.get('/launchpads');
 	return response.data;
 };
 export const useLaunchPads = () =>
-	useQuery<launchPads[], Error>('query-launchpads', fetchLaunchPads);
+	useQuery<LaunchPads[], Error>('query-launchpads', fetchLaunchPads);
 
 const fetchPayLoads = async () => {
 	const response = await apiclient.get('/payloads');
 	return response.data;
 };
 export const usePayLoads = () =>
-	useQuery<payLoads[], Error>('query-payloads', fetchPayLoads);
+	useQuery<PayLoads[], Error>('query-payloads', fetchPayLoads);
 
 const fetchRoadSter = async () => {
 	const response = await apiclient.get('/roadster');
 	return response.data;
 };
 export const useRoadSter = () =>
-	useQuery<roadSter[], Error>('query-roadster', fetchRoadSter);
+	useQuery<RoadSter[], Error>('query-roadster', fetchRoadSter);
 
 const fetchRockets = async () => {
 	const response = await apiclient.get('/rockets');
 	return response.data;
 };
 export const useRockets = () =>
-	useQuery<rockets[], Error>('query-rockets', fetchRockets);
+	useQuery<Rockets[], Error>('query-rockets', fetchRockets);
 
 const fetchShips = async () => {
 	const response = await apiclient.get('/ships');
 	return response.data;
 };
-export const useShips = () => useQuery<ships, Error>('query-ships', fetchShips);
+export const useShips = () => useQuery<Ships, Error>('query-ships', fetchShips);
 
 const fetchStarLink = async () => {
 	const response = await apiclient.get('/starlink');
 	return response.data;
 };
 export const useStarLink = () =>
-	useQuery<starLinks[], Error>('query-starlink', fetchStarLink);
+	useQuery<StarLinks[], Error>('query-starlink', fetchStarLink);

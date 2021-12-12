@@ -1,4 +1,4 @@
-export interface cores {
+export interface Cores {
 	block: number;
 	reuse_count: number;
 	rtls_attempts: number;

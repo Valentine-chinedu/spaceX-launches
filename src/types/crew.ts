@@ -1,4 +1,4 @@
-export interface crew {
+export interface Crew {
 	name: string;
 	agency: string;
 	image: string;

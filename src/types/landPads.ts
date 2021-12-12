@@ -1,4 +1,4 @@
-export interface landPads {
+export interface LandPads {
 	name: string;
 	full_name: string;
 	status: string;

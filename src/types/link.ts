@@ -1,4 +1,4 @@
-export interface link {
+export interface Link {
 	website: string;
 	flickr: string;
 	twitter: string;

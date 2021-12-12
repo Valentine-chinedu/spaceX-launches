@@ -1,4 +1,4 @@
-export interface starLinks {
+export interface StarLinks {
 	spaceTrack: {
 		CCSDS_OMM_VERS: string;
 		COMMENT: string;
