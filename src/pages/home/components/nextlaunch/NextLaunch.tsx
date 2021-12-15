@@ -5,6 +5,7 @@ import { useNextLaunch } from '../../../../services/Queries';
 import { Time } from '../../../../types';
 import LaunchName from './components/launchname/LaunchName';
 import CountDown from './components/countdown/CountDown';
+
 // import LaunchDetails from './components/launchdetails/LaunchDetails';
 
 const initialTime: Time = {
@@ -65,6 +66,8 @@ const NextLaunch = () => {
 				minutes={timer.minutes}
 				seconds={timer.seconds}
 			/>
+
+			{/* <LaunchDetails launch={nextLaunch.data! && nextLaunch.data} /> */}
 		</>
 	);
 };
