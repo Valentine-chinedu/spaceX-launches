@@ -1,4 +1,4 @@
-export interface time {
+export interface Time {
 	days: number;
 	firstDateWasLater: boolean;
 	hours: number;
