@@ -1,5 +1,6 @@
 import React from 'react';
 import { randomQuote } from '../../other/muskQuotes';
+import { LaunchHistoryChart } from './chart/LaunchHistoryChart';
 import Launches from './components/launches/Launches';
 // import LaunchHistoryChart from './launchhistory/LaunchHistoryChart';
 import NextLaunch from './components/nextlaunch/NextLaunch';
@@ -16,6 +17,7 @@ const Home = () => {
 			<Launches />
 			<Rockets />
 			<Starlink />
+			<LaunchHistoryChart />
 		</div>
 	);
 };
