@@ -1,12 +1,13 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+
 const NavBar = () => {
 	return (
 		<div>
-			<Link to='/'>SpacexInfo</Link>
+			<Link href='/'>SpacexInfo</Link>
 			<div>
-				<Link to='rockets'>Rockets</Link>
-				<Link to='launches'>Launches</Link>
-				<Link to='starlink'>Starlink</Link>
+				<Link href='/Rockets'>Rockets</Link>
+				<Link href='/Launches'>Launches</Link>
+				<Link href='/StarLink'>Starlink</Link>
 			</div>
 		</div>
 	);
