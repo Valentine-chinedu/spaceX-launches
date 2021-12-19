@@ -5,7 +5,7 @@ const NavBar = () => {
 		<div>
 			<Link href='/'>SpacexInfo</Link>
 			<div>
-				<Link href='/Rockets'>Rockets</Link>
+				<Link href='/rockets/Rockets'>Rockets</Link>
 				<Link href='/Launches'>Launches</Link>
 				<Link href='/StarLink'>Starlink</Link>
 			</div>

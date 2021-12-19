@@ -27,7 +27,7 @@ const fetchPastLaunches = async () => {
 	return response.data;
 };
 export const usePastLaunches = () =>
-	useQuery<launches[], Error>('query-past-launches', fetchPastLaunches);
+	useQuery<launches[], Error>('query-pastlaunches', fetchPastLaunches);
 
 const fetchNextLaunches = async () => {
 	const response = await apiclient.get('/launches/next');
@@ -37,18 +37,18 @@ export const useNextLaunch = () =>
 	useQuery<launches, Error>('query-nextlaunch', fetchNextLaunches);
 
 const fetchLatestLaunches = async () => {
-	const response = await apiclient.get('/launches/next/latest');
+	const response = await apiclient.get('/launches/latest');
 	return response.data;
 };
 export const useLatestLaunches = () =>
 	useQuery<launches[], Error>('query-latestlaunch', fetchLatestLaunches);
 
 const fetchUpcomingLaunches = async () => {
-	const response = await apiclient.get('/launches/next/upcoming');
+	const response = await apiclient.get('/launches/upcoming');
 	return response.data;
 };
 export const useUpcomingLaunches = () =>
-	useQuery<launches[], Error>('query-latestlaunch', fetchUpcomingLaunches);
+	useQuery<launches[], Error>('query-upcoming', fetchUpcomingLaunches);
 
 const fetchInfo = async () => {
 	const response = await apiclient.get('/company');

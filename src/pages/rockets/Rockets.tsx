@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import AboutRockets from '../components/rockets/components/AboutRockets';
-import AllRockets from '../components/rockets/components/allrocketes/AllRockets';
-import Falcon1 from '../components/rockets/components/Falcon1';
-import Falcon9 from '../components/rockets/components/Falcon9';
-import FalconHeavy from '../components/rockets/components/FalconHeavy';
-import Nav from '../components/rockets/components/Nav';
-import StarShip from '../components/rockets/components/StarShip';
+import AboutRockets from '../../components/rockets/components/AboutRockets';
+import AllRockets from '../../components/rockets/components/allrocketes/AllRockets';
+import Falcon1 from '../../components/rockets/components/Falcon1';
+import Falcon9 from '../../components/rockets/components/Falcon9';
+import FalconHeavy from '../../components/rockets/components/FalconHeavy';
+import Nav from '../../components/rockets/components/Nav';
+import StarShip from '../../components/rockets/components/StarShip';
 
 // type rocketState = {
 

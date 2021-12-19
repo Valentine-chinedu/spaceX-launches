@@ -12,7 +12,7 @@ export interface launches {
 			recovery: null;
 		};
 		flickr: {
-			small: [];
+			small: string[];
 			original: string[];
 		};
 		presskit: string;
