@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import NavBar from '../components/NavBar';
 
@@ -16,6 +17,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 			<NavBar />
 			<QueryClientProvider client={queryClient}>
 				<Component {...pageProps} />
+				<ReactQueryDevtools initialIsOpen={false} />
 			</QueryClientProvider>
 		</>
 	);
