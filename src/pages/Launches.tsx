@@ -1,4 +1,6 @@
+import { motion } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
+import { pageVariantsAnim } from '../animation';
 // import LatestLaunch from '../components/launches/LatestLaunch';
 import PastLaunches from '../components/launches/PastLaunches';
 import UpComingLaunches from '../components/launches/UpComingLaunches';
@@ -14,8 +16,12 @@ const Launches = () => {
 		setSelected('upcoming');
 	}, []);
 	return (
-		<div>
-			{/* <LatestLaunch /> */}
+		<motion.div
+			initial='initial'
+			animate='in'
+			exit='out'
+			variants={pageVariantsAnim}
+		>
 			<div>
 				<select onChange={onChangeHandler}>
 					<option value='upcoming'>UPCOMING LAUNCHES</option>
@@ -23,7 +29,7 @@ const Launches = () => {
 				</select>
 			</div>
 			{selected === 'upcoming' ? <UpComingLaunches /> : <PastLaunches />}
-		</div>
+		</motion.div>
 	);
 };
 
