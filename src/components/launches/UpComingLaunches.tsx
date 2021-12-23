@@ -18,6 +18,7 @@ const UpComingLaunches = () => {
 						patch_small={launch.links.patch.small}
 						details={launch.details}
 						status='Upcoming'
+						id={launch.id}
 					/>
 				))}
 		</div>
