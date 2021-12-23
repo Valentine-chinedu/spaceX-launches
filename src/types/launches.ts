@@ -1,3 +1,5 @@
+import { Crew, LaunchPads, PayLoads, Ships } from '.';
+
 export interface launches {
 	fairings: null;
 	links: {
@@ -30,11 +32,11 @@ export interface launches {
 	success: true;
 	failures: [];
 	details: string;
-	crew: [];
-	ships: [];
+	crew: Crew[];
+	ships: Ships[];
 	capsules: string[];
-	payloads: string[];
-	launchpad: string;
+	payloads: PayLoads[];
+	launchpad: LaunchPads[];
 	auto_update: true;
 	flight_number: number;
 	name: string;
