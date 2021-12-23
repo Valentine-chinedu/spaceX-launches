@@ -114,11 +114,12 @@ const fetchShips = async () => {
 	const response = await apiclient.get('/ships');
 	return response.data;
 };
-export const useShips = () => useQuery<Ships, Error>('query-ships', fetchShips);
+export const useShips = () =>
+	useQuery<Ships[], Error>('query-ships', fetchShips);
 
-const fetchStarLink = async () => {
+const fetchStarLinks = async () => {
 	const response = await apiclient.get('/starlink');
 	return response.data;
 };
 export const useStarLink = () =>
-	useQuery<StarLinks[], Error>('query-starlink', fetchStarLink);
+	useQuery<StarLinks[], Error>('query-starlink', fetchStarLinks);
