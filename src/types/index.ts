@@ -25,3 +25,4 @@ export type { FirstStageTypes } from './firstStageTypes';
 export type { Length } from './length';
 export type { Mass } from './mass';
 export type { FilterElement } from './filterElement';
+export type { Images } from './Images';

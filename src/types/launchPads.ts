@@ -1,3 +1,5 @@
+import { Images } from '.';
+
 export interface LaunchPads {
 	name: string;
 	full_name: string;
@@ -8,8 +10,9 @@ export interface LaunchPads {
 	longitude: number;
 	launch_attempts: number;
 	launch_successes: number;
-	rockets: Array<string>;
-	launches: Array<string>;
+	rockets: string[];
+	launches: string[];
 	status: string;
 	id: string;
+	images: Images;
 }
