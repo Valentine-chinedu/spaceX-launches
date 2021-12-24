@@ -14,7 +14,7 @@ type launchDetailsProps = {
 const Details = React.memo(
 	({ launchPad, rocketName, dateLocal, flightNumber }: launchDetailsProps) => {
 		return (
-			<div className='left-64 bg-gray-700 text-gray-300 w-auto h-auto mr-20 p-8'>
+			<div className='left-64 bg-gray-700 text-gray-300 w-auto h-auto mr-20 p-8 bg-opacity-70'>
 				<div className='flex w-auto space-x-4 '>
 					<div>
 						<p>Flight :</p>
