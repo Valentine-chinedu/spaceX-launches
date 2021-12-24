@@ -1,5 +1,4 @@
 import React from 'react';
-import { randomQuote } from '../components/other/muskQuotes';
 import { LaunchHistoryChart } from '../components/home/chart/LaunchHistoryChart';
 import Launches from '../components/home/launches/Launches';
 import NextLaunch from '../components/home/nextlaunch/NextLaunch';
@@ -15,11 +14,10 @@ const HomePage = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='flex flex-col justify-center items-center'
 		>
 			<NextLaunch />
-			<div>
-				<q>{randomQuote()} </q> - <span>Elon Musk</span>
-			</div>
+
 			<Launches />
 			<Rockets />
 			{/* <Starlink /> */}
