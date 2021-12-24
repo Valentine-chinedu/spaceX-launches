@@ -1,8 +1,8 @@
 import moment from 'moment';
 
 type launchNameProps = {
-	launchName: string | undefined;
-	dateLocal: string | undefined;
+	launchName: string;
+	dateLocal: string;
 };
 
 const LaunchName = ({ launchName, dateLocal }: launchNameProps) => {
@@ -11,9 +11,11 @@ const LaunchName = ({ launchName, dateLocal }: launchNameProps) => {
 		else return false;
 	};
 	return (
-		<div>
-			<h2>{isAfterLaunch() ? 'Current Launch' : 'Next Launch'} :</h2>
-			<h2>{launchName}</h2>
+		<div className='flex w-full mb-12 space-x-4'>
+			<h2 className='text-3xl uppercase'>
+				{isAfterLaunch() ? 'Current Launch' : 'Next Launch'} :
+			</h2>
+			<h2 className='text-3xl font-bold text-sky-600'>{launchName}</h2>
 		</div>
 	);
 };
