@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import moment from 'moment';
 import 'moment-precise-range-plugin';
-import { useNextLaunch } from '../../../services/Queries';
+import { useLaunchPads, useNextLaunch } from '../../../services/Queries';
 import { Time } from '../../../types';
 import LaunchName from './components/launchname/LaunchName';
 import CountDown from './components/countdown/CountDown';
 import LaunchDetails from './components/launchdetails/LaunchDetails';
+import Image from 'next/image';
 
 const initialTime: Time = {
 	days: 0,
@@ -18,19 +19,18 @@ const initialTime: Time = {
 };
 
 const NextLaunch = () => {
-	const nextLaunch = useNextLaunch();
+	const { data: nextLaunch } = useNextLaunch();
 
-	// const [showLivestream, setShowlivestream] = useState(false);
-	// const [isTwoMinutesBeforeStart, setIsTwoMinutesBeforeStart] = useState(false);
+	const { data } = useLaunchPads();
 
-	// console.log(data);
+	const launchPad = nextLaunch! && nextLaunch?.launchpad;
 
-	// const toggleLivestreamHandler = () => {
-	// 	setShowlivestream(!showLivestream);
-	// };
+	const launchSite = data && data!.filter((pad) => pad.id === launchPad);
+	console.log(launchSite! && launchSite[0]?.images.large[0]);
 
 	const [timer, setTimer] = useState<Time>(initialTime);
-	const dateLocal = nextLaunch.data?.date_local;
+
+	const dateLocal = nextLaunch! && nextLaunch?.date_local;
 
 	const timeDiff = useCallback(() => {
 		const launchDate = moment(dateLocal);
@@ -53,21 +53,36 @@ const NextLaunch = () => {
 	}, [timer, timeDiff]);
 
 	return (
-		<>
-			<LaunchName
-				launchName={nextLaunch.data?.name}
-				dateLocal={nextLaunch.data?.date_local}
-			/>
+		<div className=' h-screen flex flex-col w-4/5'>
+			<div className='w-full'>
+				<CountDown
+					days={timer.days}
+					hours={timer.hours}
+					minutes={timer.minutes}
+					seconds={timer.seconds}
+				/>
+			</div>
+			<div className='flex justify-start items-center  w-full h-full'>
+				<div className=''>
+					<LaunchName
+						launchName={nextLaunch! && nextLaunch?.name}
+						dateLocal={nextLaunch! && nextLaunch?.date_local}
+					/>
 
-			<CountDown
-				days={timer.days}
-				hours={timer.hours}
-				minutes={timer.minutes}
-				seconds={timer.seconds}
-			/>
-
-			<LaunchDetails launch={nextLaunch.data! && nextLaunch.data} />
-		</>
+					<LaunchDetails
+						launch={nextLaunch! && nextLaunch}
+						launchSite={launchSite!}
+					/>
+				</div>
+				{launchSite! && launchSite[0]?.images.large[0] && (
+					<img
+						className='w-6/12'
+						src={launchSite! && launchSite[0]?.images.large[0]}
+						loading='lazy'
+					/>
+				)}
+			</div>
+		</div>
 	);
 };
 

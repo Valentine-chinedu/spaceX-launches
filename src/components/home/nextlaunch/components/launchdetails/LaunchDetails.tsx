@@ -1,51 +1,25 @@
+import { useLaunchPads, usePayLoads } from '../../../../../services/Queries';
+import { launches, LaunchPads } from '../../../../../types';
 import Details from './Details';
 import { launchDetailsProps } from './launcheDetailsTypes';
 
-const LaunchDetails = ({ launch }: launchDetailsProps) => {
-	// const [showlaunchDetails, setShowLaunchDetails] = useState(false);
-
+type IProps = {
+	launch: launches;
+	launchSite: LaunchPads[];
+};
+const LaunchDetails = ({ launch, launchSite }: IProps) => {
 	return (
-		<div>
+		<div className=''>
 			<Details
-				flightNumber={launch && launch.flight_number}
-				dateLocal={launch && launch.date_local}
-				details={launch && launch.details}
-				rocketName={launch && launch.name}
-				datePrecision={launch && launch.date_precision}
-				launchPadFullName={launch && launch.launchpad}
+				flightNumber={launch && launch?.flight_number}
+				dateLocal={launch && launch?.date_local}
+				details={launch && launch?.details}
+				rocketName={launch && launch?.rocket}
+				datePrecision={launch && launch?.date_precision}
+				launchPad={launchSite! && launchSite}
 			/>
 		</div>
 	);
-	// return (
-	// 	<>
-	// 		<div>
-	// 			<p>Flight :</p>
-	// 			<p>{data && data!.flight_number}</p>
-	// 		</div>
-
-	// 		<div>
-	// 			<p>Launch Date :</p>
-	// 			<p>{data && new Date(data!.date_local)}</p>
-	// 		</div>
-
-	// 		<div>
-	// 			<p>Rocket :</p>
-	// 			<p>{data && data!.name}</p>
-	// 		</div>
-
-	// 		{/* {launchPadFullName && (
-	// 			<div>
-	// 				<p>Launch Site :</p>
-	// 				<p>{launchPadFullName}</p>
-	// 			</div>
-	// 		)} */}
-
-	// 		<div>
-	// 			<p>Details :</p>
-	// 			<p>{data && data!.details}</p>
-	// 		</div>
-	// 	</>
-	// );
 };
 
 export default LaunchDetails;
