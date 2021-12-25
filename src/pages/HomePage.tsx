@@ -5,7 +5,7 @@ import NextLaunch from '../components/home/nextlaunch/NextLaunch';
 import Rockets from '../components/home/rockets/Rockets';
 import { motion } from 'framer-motion';
 import { pageVariantsAnim } from '../animation';
-// import Starlink from '../components/home/Starlink';
+import Starlink from '../components/home/Starlink';
 
 const HomePage = () => {
 	return (
@@ -17,10 +17,9 @@ const HomePage = () => {
 			className='flex flex-col justify-center items-center'
 		>
 			<NextLaunch />
-
 			<Launches />
 			<Rockets />
-			{/* <Starlink /> */}
+			<Starlink />
 			<LaunchHistoryChart />
 		</motion.div>
 	);

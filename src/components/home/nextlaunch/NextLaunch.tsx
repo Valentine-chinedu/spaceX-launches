@@ -6,7 +6,8 @@ import { Time } from '../../../types';
 import LaunchName from './components/launchname/LaunchName';
 import CountDown from './components/countdown/CountDown';
 import LaunchDetails from './components/launchdetails/LaunchDetails';
-import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { bottomToTopAnim } from '../../../animation';
 
 const initialTime: Time = {
 	days: 0,
@@ -53,35 +54,36 @@ const NextLaunch = () => {
 	}, [timer, timeDiff]);
 
 	return (
-		<div className=' h-screen flex flex-col w-4/5'>
-			<div className='w-full'>
-				<CountDown
-					days={timer.days}
-					hours={timer.hours}
-					minutes={timer.minutes}
-					seconds={timer.seconds}
-				/>
-			</div>
-			<div className='flex justify-start items-center  w-full h-full'>
-				<div className=''>
-					<LaunchName
-						launchName={nextLaunch! && nextLaunch?.name}
-						dateLocal={nextLaunch! && nextLaunch?.date_local}
-					/>
-
-					<LaunchDetails
-						launch={nextLaunch! && nextLaunch}
-						launchSite={launchSite!}
+		<div className='flex flex-col items-center h-screen w-full pt-20 bg-starship_img bg-cover'>
+			<motion.div
+				variants={bottomToTopAnim}
+				initial='hidden'
+				animate='show'
+				exit='exit'
+				className=' w-4/5 pt-8'
+			>
+				<div className='w-full'>
+					<CountDown
+						days={timer.days}
+						hours={timer.hours}
+						minutes={timer.minutes}
+						seconds={timer.seconds}
 					/>
 				</div>
-				{launchSite! && launchSite[0]?.images.large[0] && (
-					<img
-						className='w-6/12'
-						src={launchSite! && launchSite[0]?.images.large[0]}
-						loading='lazy'
-					/>
-				)}
-			</div>
+				<div className='flex justify-center items-center w-full h-full'>
+					<div className=''>
+						<LaunchName
+							launchName={nextLaunch! && nextLaunch?.name}
+							dateLocal={nextLaunch! && nextLaunch?.date_local}
+						/>
+
+						<LaunchDetails
+							launch={nextLaunch! && nextLaunch}
+							launchSite={launchSite!}
+						/>
+					</div>
+				</div>
+			</motion.div>
 		</div>
 	);
 };
