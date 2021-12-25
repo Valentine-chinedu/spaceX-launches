@@ -9,7 +9,7 @@ type IProps = {
 };
 const LaunchDetails = ({ launch, launchSite }: IProps) => {
 	return (
-		<div className=''>
+		<div className='w-full'>
 			<Details
 				flightNumber={launch && launch?.flight_number}
 				dateLocal={launch && launch?.date_local}

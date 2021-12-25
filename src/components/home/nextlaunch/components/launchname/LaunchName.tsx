@@ -12,10 +12,10 @@ const LaunchName = ({ launchName, dateLocal }: launchNameProps) => {
 	};
 	return (
 		<div className='flex w-full mb-12 space-x-4'>
-			<h2 className='text-3xl uppercase'>
+			<h2 className='text-4xl font-bold uppercase text-stone-900'>
 				{isAfterLaunch() ? 'Current Launch' : 'Next Launch'} :
 			</h2>
-			<h2 className='text-3xl font-bold text-sky-600'>{launchName}</h2>
+			<h2 className='text-4xl font-bold text-stone-100'>{launchName}</h2>
 		</div>
 	);
 };
