@@ -21,16 +21,15 @@ ChartJS.register(
 
 type chartProps = {
 	data: any;
-	name: string;
 };
 
 console.log(defaults);
-export const Chart = ({ name, data }: chartProps) => {
+export const Chart = ({ data }: chartProps) => {
 	const options = {
 		responsive: true,
 		plugins: {
 			title: {
-				display: false,
+				display: true,
 			},
 			legend: {
 				display: true,
@@ -45,7 +44,7 @@ export const Chart = ({ name, data }: chartProps) => {
 			x: {
 				stacked: true,
 				grid: {
-					display: true,
+					display: false,
 					drawTicks: true,
 					Color: 'white',
 				},
@@ -58,9 +57,8 @@ export const Chart = ({ name, data }: chartProps) => {
 				stacked: true,
 				grid: {
 					display: true,
-					drawBprder: true,
 					color: 'white',
-					// zeroLineColor: 'white',
+					drawTicks: true,
 				},
 				ticks: {
 					color: 'white',
@@ -70,8 +68,7 @@ export const Chart = ({ name, data }: chartProps) => {
 	};
 
 	return (
-		<div>
-			<h2>{name}</h2>
+		<div className='flex flex-col justify-center w-3/5 bg-gray-800'>
 			<Bar data={data} options={options} />
 		</div>
 	);

@@ -53,7 +53,7 @@ export const LaunchHistoryChart = () => {
 								launch?.success
 						).length
 				),
-				barThickness: 25,
+				barThickness: 50,
 			},
 			{
 				label: ' Falcon 9',
@@ -69,7 +69,7 @@ export const LaunchHistoryChart = () => {
 								!launch?.cores[0].reused
 						).length
 				),
-				barThickness: 25,
+				barThickness: 50,
 			},
 			{
 				label: ' Falcon 9',
@@ -85,7 +85,7 @@ export const LaunchHistoryChart = () => {
 								launch?.cores[0].reused
 						).length
 				),
-				barThickness: 25,
+				barThickness: 50,
 			},
 			{
 				label: 'Falcon Heavy',
@@ -100,7 +100,7 @@ export const LaunchHistoryChart = () => {
 								launch?.success
 						).length
 				),
-				barThickness: 25,
+				barThickness: 50,
 			},
 			{
 				label: 'failure',
@@ -115,7 +115,7 @@ export const LaunchHistoryChart = () => {
 								!launch?.success
 						).length
 				),
-				barThickness: 25,
+				barThickness: 50,
 				barPercentage: 1,
 			},
 			{
@@ -127,14 +127,18 @@ export const LaunchHistoryChart = () => {
 						upComingLaunches.data.filter((launch) => getYear(launch) === year)
 							.length
 				),
-				barThickness: 8,
+				barThickness: 50,
+				barPercentage: 1,
 			},
 		],
 	};
 
 	return (
-		<div className='bg-gray-900 text-white'>
-			<Chart data={data} name='Launch History' />;
+		<div className='flex flex-col items-center justify-center h-screen w-full space-y-20 bg-gradient-to-b from-gray-900 to-gray-500'>
+			<h1 className='uppercase text-7xl font-semibold text-gray-200'>
+				launch history
+			</h1>
+			<Chart data={data} />;
 		</div>
 	);
 };
