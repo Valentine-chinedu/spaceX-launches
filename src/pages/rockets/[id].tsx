@@ -5,12 +5,8 @@ import { useRouter } from 'next/router';
 import { useRockets } from '../../services/Queries';
 import { RocketType } from '../../types';
 
-import f1_image from '../../../public/images/falcon1.png';
-import f9_image from '../../../public/images/falcon9.png';
-import fh_image from '../../../public/images/falconHeavy.png';
-import st_image from '../../../public/images/starship.png';
-import no_Image from '../../../public/images/noImage.png';
-import Image from 'next/image';
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 import Header from '../../components/rockets/Header';
 import OverView from '../../components/rockets/OverVew';
@@ -26,7 +22,7 @@ const RocketInfo = () => {
 	const {
 		query: { id },
 	} = router;
-	const rocket = data && data.filter((rocket) => rocket.id === id);
+	const rocket = data! && data.filter((rocket) => rocket.id === id);
 
 	const showRocketDetailsInitial = [
 		{ name: 'overview', isActive: true, isVisible: true },
@@ -41,11 +37,11 @@ const RocketInfo = () => {
 
 	useEffect(() => {
 		const temp = [...showRocketDetails];
-		if (rocket?.[0].id === RocketType.f1) temp[3].isVisible = false;
+		if (rocket && rocket[0]?.id === RocketType.f1) temp[3].isVisible = false;
 		else temp[3].isVisible = true;
 
 		setShowRocketDetails(temp);
-	}, [showRocketDetails, rocket?.[0].id]);
+	}, [showRocketDetails, rocket && rocket[0]?.id]);
 
 	const showDetailsHandler = (id: number) => {
 		const temp = [...showRocketDetails];
@@ -62,78 +58,81 @@ const RocketInfo = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
-			className='flex'
+			className='flex flex-col items-center justify-center h-full bg-gradient-to-b from-black to-gray-900'
 		>
-			<div>
-				<Image
-					src={
-						rocket?.[0].id === RocketType.f1
-							? f1_image
-							: rocket?.[0].id === RocketType.f9
-							? f9_image
-							: rocket?.[0].id === RocketType.fh
-							? fh_image
-							: rocket?.[0].id === RocketType.starship
-							? st_image
-							: no_Image
-					}
-					alt='rocket'
-					height={500}
-					width={500}
-				/>
-			</div>
-			<div>
-				<Header
-					rocketName={rocket!?.[0].name}
-					active={rocket!?.[0].active}
-					description={rocket!?.[0].description}
-				/>
-				<div>
-					{showRocketDetails
-						.filter((x) => x.isVisible)
-						.map((btn, index) => (
-							<button key={index} onClick={() => showDetailsHandler(index)}>
-								{btn.name}
-							</button>
-							// <Butto
-							// 	key={index}
-							// 	name={btn.name}
-							// 	styleType='primary'
+			<div className='flex flex-col relative justify-cente items-center bottom-48 w-3/5 h-screen'>
+				<div className=' h-screen flex flex-col justify-center '>
+					<Header
+						rocketName={rocket && rocket[0]?.name}
+						active={rocket && rocket[0]?.active}
+						description={rocket && rocket[0]?.description}
+					/>
+					<div className='flex text-stone-100 space-x-20 mb-4'>
+						{showRocketDetails
+							.filter((x) => x.isVisible)
+							.map((btn, index) => (
+								<button
+									key={index}
+									onClick={() => showDetailsHandler(index)}
+									className='border-2 p-2 text-lg hover:bg-amber-900 rounded-md focus:bg-amber-900'
+								>
+									{btn.name}
+								</button>
+								// <Butto
+								// 	key={index}
+								// 	name={btn.name}
+								// 	styleType='primary'
 
-							// 	selected={showRocketDetails[index].isActive}
-							// />
-						))}
+								// 	selected={showRocketDetails[index].isActive}
+								// />
+							))}
+					</div>
+					<div className='relative'>
+						<AnimatePresence>
+							{showRocketDetails[0].isActive && (
+								<OverView
+									height={rocket && rocket[0]?.height}
+									diameter={rocket && rocket[0]?.diameter}
+									mass={rocket && rocket[0]?.mass}
+									payloads={rocket && rocket[0]?.payload_weights}
+								/>
+							)}
+						</AnimatePresence>
+						<AnimatePresence>
+							{showRocketDetails[1].isActive && (
+								<FirstStage
+									firstStage={rocket && rocket[0]?.first_stage}
+									engines={rocket && rocket[0]?.engines}
+								/>
+							)}
+						</AnimatePresence>
+						<AnimatePresence>
+							{showRocketDetails[2].isActive && (
+								<SecondStage secondStage={rocket && rocket[0]?.second_stage} />
+							)}
+						</AnimatePresence>
+						<AnimatePresence>
+							{showRocketDetails[3].isActive && (
+								<LandingLegs landingLegs={rocket && rocket[0]?.landing_legs} />
+							)}
+						</AnimatePresence>
+					</div>
 				</div>
-				<div>
-					<AnimatePresence>
-						{showRocketDetails[0].isActive && (
-							<OverView
-								height={rocket!?.[0].height}
-								diameter={rocket!?.[0].diameter}
-								mass={rocket!?.[0].mass}
-								payloads={rocket!?.[0].payload_weights}
-							/>
-						)}
-					</AnimatePresence>
-					<AnimatePresence>
-						{showRocketDetails[1].isActive && (
-							<FirstStage
-								firstStage={rocket!?.[0].first_stage}
-								engines={rocket!?.[0].engines}
-							/>
-						)}
-					</AnimatePresence>
-					<AnimatePresence>
-						{showRocketDetails[2].isActive && (
-							<SecondStage secondStage={rocket!?.[0].second_stage} />
-						)}
-					</AnimatePresence>
-					<AnimatePresence>
-						{showRocketDetails[3].isActive && (
-							<LandingLegs landingLegs={rocket!?.[0].landing_legs} />
-						)}
-					</AnimatePresence>
-				</div>
+			</div>
+			<div className='flex h-screen items-center'>
+				{rocket && rocket[0]?.flickr_images.length > 0 ? (
+					<ImageGallery
+						showPlayButton={false}
+						showThumbnails={false}
+						showBullets
+						items={
+							rocket &&
+							rocket[0]?.flickr_images.map((img) => ({
+								original: img,
+							}))
+						}
+					/>
+				) : null}
 			</div>
 		</motion.div>
 	);

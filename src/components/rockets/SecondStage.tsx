@@ -14,6 +14,7 @@ export const SecondStage = ({ secondStage }: secondStageProps) => {
 			initial='hidden'
 			animate='show'
 			exit='exit'
+			className='absolute w-full'
 		>
 			{secondStage.engines && (
 				<InfoLine title='engines' value={`${secondStage.engines}`} />

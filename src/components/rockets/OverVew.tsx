@@ -17,6 +17,7 @@ const OverView = ({ height, diameter, mass, payloads }: overviewProps) => {
 			initial='hidden'
 			animate='show'
 			exit='exit'
+			className='absolute w-full'
 		>
 			{height?.meters || height?.feet ? (
 				<InfoLine

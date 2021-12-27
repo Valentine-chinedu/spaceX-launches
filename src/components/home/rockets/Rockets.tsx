@@ -12,7 +12,7 @@ const Rockets = () => {
 					{randomRQuote()}
 				</h3>
 				<Link href='/Launches'>
-					<a className='flex justify-center w-52 border-4 border-stone-900 rounded-md text-stone-100 text-2xl font-semibold py-3 mb-10 bg-opacity-60 bg-stone-800 hover:bg-stone-900'>
+					<a className='flex justify-center w-52 border-4 border-amber-900 rounded-md text-stone-100 text-2xl font-semibold py-3 mb-10 bg-opacity-60 bg-amber-800 hover:bg-amber-900'>
 						Explore Rocket
 					</a>
 				</Link>

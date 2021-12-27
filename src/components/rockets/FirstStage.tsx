@@ -15,23 +15,10 @@ const FirstStage = ({ firstStage, engines }: firstStageProps) => {
 			initial='hidden'
 			animate='show'
 			exit='exit'
+			className='absolute w-full'
 		>
 			{firstStage.engines && (
 				<InfoLine title='engines' value={`${firstStage.engines}`} />
-			)}
-
-			{(firstStage.thrust_sea_level.kN || firstStage.thrust_sea_level.lbf) && (
-				<InfoLine
-					title='thrustAtSeaLevel'
-					value={`${firstStage.thrust_sea_level.kN} kn | ${firstStage.thrust_sea_level.lbf} lbf`}
-				/>
-			)}
-
-			{(firstStage.thrust_vacuum.kN || firstStage.thrust_vacuum.lbf) && (
-				<InfoLine
-					title='thrustVacuum'
-					value={`${firstStage.thrust_vacuum.kN} kn | ${firstStage.thrust_vacuum.lbf} lbf`}
-				/>
 			)}
 
 			{firstStage.fuel_amount_tons && (

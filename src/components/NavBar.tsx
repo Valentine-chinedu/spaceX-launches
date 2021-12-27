@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const NavBar = () => {
 	return (
-		<div className='flex absolute w-full justify-between px-20 py-6 text-xl'>
+		<div className='flex absolute w-full justify-between px-20 py-6 text-xl z-50'>
 			<Link href='/'>
 				<a className='uppercase text-2xl text-stone-100 font-bold'>
 					SpacexInfo

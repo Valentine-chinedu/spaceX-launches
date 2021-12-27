@@ -13,6 +13,7 @@ export const LandingLegs = ({ landingLegs }: landingLegsProps) => {
 			initial='hidden'
 			animate='show'
 			exit='exit'
+			className='absolute w-full'
 		>
 			{landingLegs.number && (
 				<InfoLine title='number' value={`${landingLegs.number}`} />

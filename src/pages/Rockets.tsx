@@ -10,6 +10,7 @@ const Rockets = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='bg-gradient-to-b from-black to-gray-900 pt-28 px-16 h-screen relative overflow-y-hidden'
 		>
 			<AboutRockets />
 
