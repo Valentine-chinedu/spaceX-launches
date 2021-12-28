@@ -18,7 +18,7 @@ const Pagination = ({
 			<div className='text-sm text-stone-100 mb-4'>
 				<span className='mr-1.5'> Showing</span>
 				<span className='font-medium mr-1.5'>
-					{currentPage * dataPerPage - 10}
+					{currentPage * dataPerPage - 9}
 				</span>
 				to
 				<span className='font-medium'> {currentPage * dataPerPage} </span>
