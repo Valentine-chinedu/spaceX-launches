@@ -21,14 +21,20 @@ const Launches = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='flex justify-center bg-gradient-to-b from-black to-gray-900 pt-32'
 		>
-			<div>
-				<select onChange={onChangeHandler}>
-					<option value='upcoming'>UPCOMING LAUNCHES</option>
-					<option value='past'>PAST LAUNCHES</option>
-				</select>
+			<div className='flex flex-col items-cente h-full w-4/5'>
+				<div className='mb-8'>
+					<select
+						onChange={onChangeHandler}
+						className='text-stone-100 bg-gray-900 rounded-md w-60 h-14 border-amber-900'
+					>
+						<option value='upcoming'>UPCOMING LAUNCHES</option>
+						<option value='past'>PAST LAUNCHES</option>
+					</select>
+				</div>
+				{selected === 'upcoming' ? <UpComingLaunches /> : <PastLaunches />}
 			</div>
-			{selected === 'upcoming' ? <UpComingLaunches /> : <PastLaunches />}
 		</motion.div>
 	);
 };

@@ -7,7 +7,7 @@ const UpComingLaunches = () => {
 	const { data, isLoading, isSuccess } = useUpcomingLaunches();
 
 	return (
-		<div>
+		<div className='w-full'>
 			{data &&
 				data?.map((launch) => (
 					<LaunchInfo
