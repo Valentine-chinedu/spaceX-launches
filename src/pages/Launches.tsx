@@ -23,7 +23,7 @@ const Launches = () => {
 			variants={pageVariantsAnim}
 			className='flex justify-center bg-gradient-to-b from-black to-gray-900 pt-32'
 		>
-			<div className='flex flex-col items-cente h-full w-4/5'>
+			<div className='flex flex-col items-cente h-full w-4/5 max-w-5xl'>
 				<div className='mb-8'>
 					<select
 						onChange={onChangeHandler}
