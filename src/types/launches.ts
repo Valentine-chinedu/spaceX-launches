@@ -35,7 +35,7 @@ export interface launches {
 	crew: Crew[];
 	ships: Ships[];
 	capsules: string[];
-	payloads: PayLoads[];
+	payloads: string[];
 	launchpad: string;
 	auto_update: true;
 	flight_number: number;

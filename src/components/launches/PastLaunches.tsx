@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { pageVariantsAnim } from '../../animation';
 import { usePastLaunches } from '../../services/Queries';
 import LaunchInfo from './LaunchInfo';
-import Pagination from './Pagination';
+import Pagination from '../shared/Pagination';
 
 const PastLaunches = () => {
 	const { data } = usePastLaunches();
@@ -18,8 +18,6 @@ const PastLaunches = () => {
 	const paginateFront = () => setCurrentPage(currentPage + 1);
 	const paginateBack = () => setCurrentPage(currentPage - 1);
 
-	const totalData = data! && data.length;
-	const pageRange = 9;
 	return (
 		<motion.div
 			initial='initial'

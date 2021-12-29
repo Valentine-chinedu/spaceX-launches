@@ -5,26 +5,21 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { pageVariantsAnim } from '../animation';
 import { useStarLink } from '../services/Queries';
 import StarLinkInfo from '../components/starlinks/StarLinkInfo';
-import Pagination from 'react-js-pagination';
+import Pagination from '../components/shared/Pagination';
 
 const StarLink = () => {
 	const { data } = useStarLink();
+	console.log(data);
 
-	// const [commentData, setcommentData] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
-	const [dataPerPage] = useState(6);
+	const [dataPerPage] = useState(10);
 
-	const indexOfLastPost = currentPage * dataPerPage;
-	const indexOfFirstPost = indexOfLastPost - dataPerPage;
-	const currentData = data! && data.slice(indexOfFirstPost, indexOfLastPost);
+	const indexOfLastData = currentPage * dataPerPage;
+	const indexOfFirstData = indexOfLastData - dataPerPage;
+	const currentData = data! && data.slice(indexOfFirstData, indexOfLastData);
 
-	const handlePageChange = (pageNumber: number) => {
-		setCurrentPage(pageNumber);
-		window.scrollTo(0, 0);
-	};
-
-	const totalData = data! && data.length;
-	const pageRange = 9;
+	const paginateFront = () => setCurrentPage(currentPage + 1);
+	const paginateBack = () => setCurrentPage(currentPage - 1);
 
 	return (
 		<>
@@ -33,25 +28,18 @@ const StarLink = () => {
 				animate='in'
 				exit='out'
 				variants={pageVariantsAnim}
+				className='flex justify-center bg-gradient-to-b from-black to-gray-900 pt-32'
 			>
-				<StarLinkInfo starLinkData={currentData} />
-				<Pagination
-					prevPageText='Prev'
-					nextPageText='Next'
-					firstPageText='First'
-					lastPageText='Last'
-					activePage={currentPage}
-					itemsCountPerPage={dataPerPage}
-					totalItemsCount={totalData}
-					pageRangeDisplayed={pageRange}
-					onChange={handlePageChange}
-				/>
-
-				{/* <Paginate
-					onChangePage={pageHandler}
-					dataPerPage={dataPerPage}
-					totalData={data! && data.length}
-				/> */}
+				<div className='w-3/5'>
+					<StarLinkInfo starLinkData={currentData} />
+					<Pagination
+						dataPerPage={dataPerPage}
+						totalData={data! && data?.length}
+						paginateBack={paginateBack}
+						paginateFront={paginateFront}
+						currentPage={currentPage}
+					/>
+				</div>
 			</motion.div>
 		</>
 	);

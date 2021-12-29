@@ -15,6 +15,7 @@ const LatestLaunch = () => {
 						patch_small={launch.links.patch.small}
 						details={launch.details}
 						status={launch.success ? 'successfull' : 'failed'}
+						id={launch.id}
 					/>
 				))}
 		</div>

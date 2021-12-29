@@ -7,10 +7,12 @@ type payloadProps = {
 
 const PayLoad = ({ payLoads }: payloadProps) => {
 	return (
-		<div>
+		<div className='mb-16'>
 			{payLoads?.map((payload, index) => (
 				<div key={index}>
-					<h2>payload #{index + 1}</h2>
+					<h2 className='text-stone-100 uppercase text-xl'>
+						payload #{index + 1}
+					</h2>
 					{payload.name && <InfoLine title='name' value={`${payload.name}`} />}
 					{payload.customers?.length > 0 && (
 						<InfoLine title='customer' value={`${[...payload.customers]}, `} />

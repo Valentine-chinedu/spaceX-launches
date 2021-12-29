@@ -68,7 +68,7 @@ export const Chart = ({ data }: chartProps) => {
 	};
 
 	return (
-		<div className='flex flex-col justify-center w-3/5 bg-gray-800'>
+		<div className='flex flex-col justify-center w-5/6 bg-gray-800'>
 			<Bar data={data} options={options} />
 		</div>
 	);

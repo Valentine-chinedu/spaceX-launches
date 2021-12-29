@@ -9,7 +9,7 @@ const YouTube = ({ youTubeId }: youTubeProps) => {
 
 	if (youTubeId)
 		yt = (
-			<div>
+			<div className='h-[28rem]'>
 				<ReactPlayer
 					controls
 					width='100%'

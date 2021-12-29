@@ -15,4 +15,5 @@ export interface LaunchPads {
 	status: string;
 	id: string;
 	images: Images;
+	details: string;
 }

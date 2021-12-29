@@ -1,24 +1,42 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+
 import { useRouter } from 'next/router';
 import { pageVariantsAnim } from '../../animation';
-import { useLaunches } from '../../services/Queries';
+import {
+	useLaunches,
+	useLaunchPads,
+	usePayLoads,
+} from '../../services/Queries';
 import ImageGallery from 'react-image-gallery';
-import no_Image from '../../../public/images/noImage.png';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
-import { RocketType } from '../../types';
 import PayLoad from '../../components/launch/PayLoad';
 import YouTube from '../../components/launch/YouTube';
+import LaunchInfo from '../../components/launch/LaunchInfo';
 
 const LaunchDetails = () => {
 	const { data, isSuccess } = useLaunches();
+
+	const { data: launchPads } = useLaunchPads();
+
+	const { data: payLoads } = usePayLoads();
 
 	const router = useRouter();
 	const {
 		query: { id },
 	} = router;
+
 	const launch = data! && data!.filter((launch) => launch.id === id);
 	console.log(launch);
+
+	const launchPad = launch?.[0]?.launchpad;
+	const payLoad = launch?.[0]?.payloads[0];
+
+	const launchSite =
+		launchPads! && launchPads.filter((pad) => pad.id === launchPad);
+
+	const launchPayLoad =
+		payLoads! && payLoads.filter((load) => load.id === payLoad);
 
 	return (
 		<motion.div
@@ -26,70 +44,44 @@ const LaunchDetails = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='flex justify-center bg-gradient-to-b from-black to-gray-900 h-full pt-32 pb-8 overflow-y-auto'
 		>
-			<div>
-				<div>
-					<Image
-						src={
-							launch?.[0].links.patch.small === undefined
-								? no_Image
-								: launch?.[0].links.patch.small
-						}
-						alt='No image Found'
-						height={100}
-						width={100}
-					/>
-				</div>
-				<div>
-					<div>
-						<h1>{launch && launch[0]?.name}</h1>
-						<h2>{launch && launch[0]?.flight_number}</h2>
-					</div>
-					<h3>{launch && launch[0]?.date_local}</h3>
-				</div>
-				<div>
-					<div>
-						<h3>ROCKET :</h3>
-						{launch && launch[0]?.launchpad[0]?.locality && (
-							<h3>LAUNCH SITE :</h3>
-						)}
-						{launch && launch[0]?.launchpad[0]?.name && <h3>LAUNCHPAD :</h3>}
-					</div>
-					<div>
-						<h3>
-							{launch && launch[0]?.rocket === RocketType.f1
-								? 'Falcon 1'
-								: launch && launch[0]?.rocket === RocketType.f9
-								? 'Falcon 9'
-								: launch && launch[0]?.rocket === RocketType.fh
-								? 'Falcon Heavy'
-								: launch && launch[0]?.rocket === RocketType.starship
-								? 'Starship'
-								: ''}
-						</h3>
-						{launch && launch[0]?.launchpad[0]?.locality && (
-							<h3>{launch[0]?.launchpad[0]?.locality}</h3>
-						)}
-						{launch && launch[0]?.launchpad[0]?.name && (
-							<h3>{launch[0]?.launchpad[0]?.name}</h3>
-						)}
-					</div>
-				</div>
-				<PayLoad payLoads={launch && launch[0]?.payloads} />
+			<div className='w-4/5 max-w-3xl h-full'>
+				<LaunchInfo
+					name={launchSite?.[0]?.name}
+					date={launch?.[0]?.date_local}
+					number={launch?.[0]?.flight_number}
+					rocket={launch?.[0]?.rocket}
+					patch_small={launch?.[0]?.links.patch.small}
+					details={launchSite?.[0]?.details}
+					status={
+						launch?.[0]?.success
+							? 'successfull'
+							: launch?.[0]?.success === null
+							? 'upcoming'
+							: 'failed'
+					}
+					launchSite={launchSite?.[0]?.full_name}
+					region={launchSite?.[0]?.region}
+				/>
+
+				<PayLoad payLoads={launchPayLoad} />
 
 				{launch && launch[0]?.links.flickr.original.length > 0 ? (
-					<ImageGallery
-						infinite
-						showPlayButton={false}
-						showThumbnails={false}
-						showBullets
-						items={
-							launch &&
-							launch[0]?.links.flickr.original.map((image) => ({
-								original: image,
-							}))
-						}
-					/>
+					<div className='mb-16'>
+						<ImageGallery
+							infinite
+							showPlayButton={false}
+							showThumbnails={false}
+							showBullets
+							items={
+								launch &&
+								launch[0]?.links.flickr.original.map((image) => ({
+									original: image,
+								}))
+							}
+						/>
+					</div>
 				) : null}
 				<YouTube youTubeId={launch && launch[0]?.links.youtube_id} />
 			</div>

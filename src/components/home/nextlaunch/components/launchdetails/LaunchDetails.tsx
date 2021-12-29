@@ -1,7 +1,6 @@
 import { useLaunchPads, usePayLoads } from '../../../../../services/Queries';
 import { launches, LaunchPads } from '../../../../../types';
 import Details from './Details';
-import { launchDetailsProps } from './launcheDetailsTypes';
 
 type IProps = {
 	launch: launches;

@@ -27,7 +27,6 @@ const NextLaunch = () => {
 	const launchPad = nextLaunch! && nextLaunch?.launchpad;
 
 	const launchSite = data && data!.filter((pad) => pad.id === launchPad);
-	console.log(launchSite! && launchSite[0]?.images.large[0]);
 
 	const [timer, setTimer] = useState<Time>(initialTime);
 
