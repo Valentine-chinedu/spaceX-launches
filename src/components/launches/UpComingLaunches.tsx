@@ -4,11 +4,16 @@ import { useUpcomingLaunches } from '../../services/Queries';
 import LaunchInfo from './LaunchInfo';
 
 const UpComingLaunches = () => {
-	const { data, isLoading, isSuccess } = useUpcomingLaunches();
+	const { data, isLoading } = useUpcomingLaunches();
 
 	return (
 		<div className='w-full'>
-			{data &&
+			{isLoading ? (
+				<div className='flex w-full h-screen justify-center items-center text-2xl text-stone-100 font-semibold'>
+					<h2> Loading...</h2>
+				</div>
+			) : (
+				data &&
 				data?.map((launch) => (
 					<LaunchInfo
 						name={launch.name}
@@ -20,7 +25,8 @@ const UpComingLaunches = () => {
 						status='Upcoming'
 						id={launch.id}
 					/>
-				))}
+				))
+			)}
 		</div>
 	);
 };

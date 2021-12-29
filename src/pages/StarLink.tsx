@@ -8,7 +8,7 @@ import StarLinkInfo from '../components/starlinks/StarLinkInfo';
 import Pagination from '../components/shared/Pagination';
 
 const StarLink = () => {
-	const { data } = useStarLink();
+	const { data, isLoading } = useStarLink();
 	console.log(data);
 
 	const [currentPage, setCurrentPage] = useState(1);
@@ -31,7 +31,7 @@ const StarLink = () => {
 				className='flex justify-center bg-gradient-to-b from-black to-gray-900 pt-32'
 			>
 				<div className='w-3/5 max-w-5xl'>
-					<StarLinkInfo starLinkData={currentData} />
+					<StarLinkInfo starLinkData={currentData} isLoading={isLoading} />
 					<Pagination
 						dataPerPage={dataPerPage}
 						totalData={data! && data?.length}
