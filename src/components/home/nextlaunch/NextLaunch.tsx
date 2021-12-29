@@ -59,7 +59,7 @@ const NextLaunch = () => {
 				initial='hidden'
 				animate='show'
 				exit='exit'
-				className=' w-4/5 pt-8'
+				className=' w-4/5 pt-8 max-w-5xl'
 			>
 				<div className='w-full'>
 					<CountDown
