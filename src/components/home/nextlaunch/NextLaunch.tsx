@@ -53,13 +53,13 @@ const NextLaunch = () => {
 	}, [timer, timeDiff]);
 
 	return (
-		<div className='flex flex-col items-center h-screen w-full pt-20 bg-starship_img bg-cover'>
+		<div className='flex flex-col items-center h-screen w-full pt-20 bg-starship_img  bg-cover md:bg-cover overflow-x-hidden'>
 			<motion.div
 				variants={bottomToTopAnim}
 				initial='hidden'
 				animate='show'
 				exit='exit'
-				className=' w-4/5 pt-8 max-w-5xl'
+				className='w-full md:w-4/5 pt-8 max-w-5xl'
 			>
 				<div className='w-full'>
 					<CountDown

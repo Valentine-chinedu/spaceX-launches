@@ -134,7 +134,7 @@ export const LaunchHistoryChart = () => {
 	};
 
 	return (
-		<div className='flex flex-col items-center justify-center h-screen w-full space-y-12 bg-gradient-to-b from-black to-gray-900'>
+		<div className='flex flex-col items-center justify-center h-screen w-full overflow-x-hidden space-y-12 bg-gradient-to-b from-black to-gray-900'>
 			<h1 className='uppercase text-6xl font-semibold text-gray-200'>
 				launch history
 			</h1>

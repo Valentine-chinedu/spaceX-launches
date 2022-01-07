@@ -16,8 +16,8 @@ const Launches = () => {
 		launches.data! &&
 		launches.data.filter((launch) => launch.cores[0].reused === true).length;
 	return (
-		<div className='flex flex-col items-center h-screen w-full bg-launch_img bg-contain'>
-			<div className='flex flex-col justify-center w-4/5 max-w-5xl h-full'>
+		<div className='flex flex-col items-center h-screen w-full bg-launch_img bg-contain overflow-x-hidden'>
+			<div className='flex flex-col justify-center w-full md:w-4/5 max-w-5xl h-full'>
 				<h2 className='text-8xl font-bold text-stone-100 mb-16'>LAUNCHES</h2>
 				<div className='flex text-stone-200 text-4xl space-x-8 mb-12'>
 					<div className='space-y-4'>

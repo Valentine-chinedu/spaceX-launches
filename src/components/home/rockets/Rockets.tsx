@@ -3,8 +3,8 @@ import { randomRQuote } from '../../other/rocketQuotes';
 
 const Rockets = () => {
 	return (
-		<div className='flex flex-col items-center h-screen w-full bg-rocket_img bg-contain'>
-			<div className='flex flex-col justify-center w-4/5 max-w-5xl h-full'>
+		<div className='flex flex-col items-center h-screen w-full bg-rocket_img bg-contain overflow-x-hidden'>
+			<div className='flex flex-col justify-center w-full md:w-4/5 max-w-5xl h-full'>
 				<h3 className='uppercase text-8xl font-bold text-stone-100 mb-20'>
 					Rockets
 				</h3>

@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 const Starlink = () => {
 	return (
-		<div className='flex flex-col items-center h-screen w-full bg-starlink_img'>
-			<div className='flex flex-col justify-center w-4/5 h-full text-stone-100'>
+		<div className='flex flex-col items-center h-screen w-full bg-starlink_img overflow-x-hidden'>
+			<div className='flex flex-col justify-center w-full md:w-4/5 h-full text-stone-100'>
 				<h1 className='uppercase text-8xl font-bold text-stone-50 mb-20'>
 					Starlink
 				</h1>
