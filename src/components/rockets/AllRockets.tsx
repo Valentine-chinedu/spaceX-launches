@@ -12,7 +12,7 @@ const AllRockets = () => {
 	const { data } = useRockets();
 	console.log(data);
 	return (
-		<div className='flex absolute justify-center items-end w-full space-x-36 bottom-10 z-30 px-20'>
+		<div className='flex absolute justify-center items-end w-full space-x-8 md:space-x-36 pb-4 md:p-0 bottom-10 z-30 px-20 '>
 			<Link href={`/rockets/${data && data[0].id}`}>
 				<a className='flex flex-col items-center space-y-4'>
 					<Image
@@ -20,7 +20,9 @@ const AllRockets = () => {
 						alt='rocket'
 						className='hover:scale-x-110 transform duration-500'
 					/>
-					<h3 className=' text-stone-100 font-semibold'>Falcon 1</h3>
+					<h3 className=' text-sm md:text-base text-stone-100 font-semibold'>
+						Falcon 1
+					</h3>
 				</a>
 			</Link>
 			<Link href={`/rockets/${data && data[1].id}`}>
@@ -30,7 +32,9 @@ const AllRockets = () => {
 						alt='rocket'
 						className='hover:scale-x-110 transform duration-500'
 					/>
-					<h2 className='text-stone-100 font-semibold'>Falcon 9</h2>
+					<h2 className='text-sm md:text-base text-stone-100 font-semibold'>
+						Falcon 9
+					</h2>
 				</a>
 			</Link>
 			<Link href={`/rockets/${data && data[2].id}`}>
@@ -40,7 +44,9 @@ const AllRockets = () => {
 						alt='rocket'
 						className='hover:scale-x-110 transform duration-500'
 					/>
-					<h3 className='text-stone-100 font-semibold'>Falcon Heavy</h3>
+					<h3 className='text-sm md:text-base text-stone-100 font-semibold'>
+						Falcon Heavy
+					</h3>
 				</a>
 			</Link>
 			<Link href={`/rockets/${data && data[3].id}`}>
@@ -50,7 +56,9 @@ const AllRockets = () => {
 						alt='rocket'
 						className='hover:scale-x-110 transform duration-500'
 					/>
-					<h3 className='text-stone-100 font-semibold'>Starship</h3>
+					<h3 className='text-sm md:text-base text-stone-100 font-semibold'>
+						Starship
+					</h3>
 				</a>
 			</Link>
 		</div>

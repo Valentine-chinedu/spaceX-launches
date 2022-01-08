@@ -14,7 +14,7 @@ const Header = ({ description, active, rocketName }: headerProps) => {
 		rocketStatus = { name: 'In Development', color: '#005288' };
 
 	return (
-		<div className=' text-stone-100 space-y-4 mb-12'>
+		<div className=' text-stone-100 text-sm md:text-base space-y-4 mb-12'>
 			<p className='w-3/4'>{description}</p>
 			<h3 className='flex items-center uppercase w-full space-x-2'>
 				<span>status :</span>

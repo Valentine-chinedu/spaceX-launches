@@ -58,7 +58,7 @@ const RocketInfo = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
-			className='flex flex-col items-center justify-center h-full bg-gradient-to-b from-black to-gray-900'
+			className='flex flex-col items-center justify-center h-full pt-36 md:pt-0 bg-gradient-to-b from-black to-gray-900 overflow-x-hidden'
 		>
 			<div className='flex flex-col relative justify-cente items-center bottom-48 w-3/5 h-screen'>
 				<div className=' h-screen flex flex-col justify-center '>
@@ -67,14 +67,14 @@ const RocketInfo = () => {
 						active={rocket && rocket[0]?.active}
 						description={rocket && rocket[0]?.description}
 					/>
-					<div className='flex text-stone-100 space-x-20 mb-4'>
+					<div className='flex text-stone-100 space-x-4 md:space-x-20 mb-4'>
 						{showRocketDetails
 							.filter((x) => x.isVisible)
 							.map((btn, index) => (
 								<button
 									key={index}
 									onClick={() => showDetailsHandler(index)}
-									className='border-2 p-2 text-lg hover:bg-amber-900 rounded-md focus:bg-amber-900'
+									className='border-2 p-2 text-sm md:text-lg hover:bg-amber-900 rounded-md focus:bg-amber-900'
 								>
 									{btn.name}
 								</button>
@@ -119,7 +119,7 @@ const RocketInfo = () => {
 					</div>
 				</div>
 			</div>
-			<div className='flex h-screen items-center'>
+			<div className='flex h-full md:h-screen items-center'>
 				{rocket && rocket[0]?.flickr_images.length > 0 ? (
 					<ImageGallery
 						showPlayButton={false}

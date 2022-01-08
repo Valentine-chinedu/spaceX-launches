@@ -53,7 +53,7 @@ const NextLaunch = () => {
 	}, [timer, timeDiff]);
 
 	return (
-		<div className='flex flex-col items-center h-screen w-full pt-20 bg-starship_img  bg-cover md:bg-cover overflow-x-hidden'>
+		<div className='flex flex-col items-center h-screen w-full pt-20 bg-starship_img bg-cover md:bg-cover overflow-x-hidden'>
 			<motion.div
 				variants={bottomToTopAnim}
 				initial='hidden'
