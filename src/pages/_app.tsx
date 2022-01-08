@@ -13,6 +13,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 		<>
 			<Head>
 				<title>SpaceX Info</title>
+
+				<meta property='og:image' content='/spacex-img.jpg' />
+				<meta property='og:image:type' content='image/jpeg' />
+				<meta property='og:image:width' content='200' />
+				<meta property='og:image:height' content='200' />
 			</Head>
 			<NavBar />
 			<QueryClientProvider client={queryClient}>
