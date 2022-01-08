@@ -6,11 +6,12 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<title>SpaceX Project</title>
-
 				<title>SpaceX Info</title>
 
-				<meta property='og:image' content='/spacex-img.jpg' />
+				<meta
+					property='og:image'
+					content='http://space-x-launches-iota.vercel.app/spacex-img.jpg'
+				/>
 				<meta property='og:image:type' content='image/jpeg' />
 				<meta property='og:image:width' content='200' />
 				<meta property='og:image:height' content='200' />
