@@ -15,6 +15,7 @@ const StarLinkInfo = memo(({ starLinkData, isLoading }: starlinkProps) => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='flex flex-col items-center w-screen px-4'
 		>
 			{isLoading ? (
 				<div className='flex w-full h-screen justify-center items-center text-2xl text-stone-100 font-semibold'>
@@ -24,12 +25,12 @@ const StarLinkInfo = memo(({ starLinkData, isLoading }: starlinkProps) => {
 				starLinkData?.map((starLink, index) => (
 					<div
 						key={index}
-						className='bg-gray-900 mb-4 text-stone-100 p-8 rounded-md'
+						className='bg-gray-900 w-full md:w-3/5 text-stone-100 p-2 md:p-8 mb-4 rounded-md'
 					>
 						<h1 className='text-amber-900 text-xl font-bold mb-4'>
 							{starLink.spaceTrack.OBJECT_NAME}
 						</h1>
-						<div className='flex justify-between items-start'>
+						<div className='flex justify-between items-start text-sm md:text-base'>
 							<div className='flex space-x-4'>
 								<div className='space-y-2'>
 									<h3>Launched :</h3>

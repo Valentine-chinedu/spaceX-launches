@@ -28,9 +28,9 @@ const StarLink = () => {
 				animate='in'
 				exit='out'
 				variants={pageVariantsAnim}
-				className='flex justify-center bg-gradient-to-b from-black to-gray-900 pt-32'
+				className='flex justify-center items-cente bg-gradient-to-b from-black to-gray-900 pt-32'
 			>
-				<div className='w-3/5 max-w-5xl'>
+				<div className='flex flex-col items-center w-3/5 max-w-5xl'>
 					<StarLinkInfo starLinkData={currentData} isLoading={isLoading} />
 					<Pagination
 						dataPerPage={dataPerPage}

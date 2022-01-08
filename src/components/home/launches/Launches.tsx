@@ -16,10 +16,12 @@ const Launches = () => {
 		launches.data! &&
 		launches.data.filter((launch) => launch.cores[0].reused === true).length;
 	return (
-		<div className='flex flex-col items-center h-screen w-full bg-launch_img bg-contain'>
-			<div className='flex flex-col justify-center w-4/5 max-w-5xl h-full'>
-				<h2 className='text-8xl font-bold text-stone-100 mb-16'>LAUNCHES</h2>
-				<div className='flex text-stone-200 text-4xl space-x-8 mb-12'>
+		<div className='flex flex-col items-center h-screen w-full bg-launch_img bg-cover md:bg-contain overflow-x-hidden'>
+			<div className='flex flex-col justify-center items-center md:items-start w-full md:w-4/5 max-w-5xl h-full'>
+				<h2 className='text-2xl md:text-8xl font-bold text-stone-100 mb-16'>
+					LAUNCHES
+				</h2>
+				<div className='flex text-stone-200 text-2xl md:text-4xl space-x-8 mb-12'>
 					<div className='space-y-4'>
 						<h3>{launches?.data?.length}</h3>
 
@@ -37,14 +39,16 @@ const Launches = () => {
 				</div>
 
 				<Link href='/Launches'>
-					<a className='flex justify-center w-52 border-4 border-amber-900 rounded-md text-stone-100 text-2xl font-semibold py-3 mb-10 bg-opacity-60 bg-amber-900 hover:bg-amber-900'>
+					<a className='flex justify-center w-44 md:w-52 border-4 border-amber-900 rounded-md text-stone-100 text-xl md:text-2xl font-semibold py-3 mb-10 bg-opacity-60 bg-amber-900 hover:bg-amber-900'>
 						Explore Launches
 					</a>
 				</Link>
 
-				<div className=' flex justify-center space-x-4 text-stone-100'>
-					<q className=' italic text-lg'>{randomQuote()}</q> <span>-</span>
-					<span className='text-blue-700 text-lg font-semibold'>Elon Musk</span>
+				<div className=' flex flex-col md:flex-rowjustify-center px-2 md:px-0 space-y-2 md:space-y-0 space-x-4 text-stone-100'>
+					<q className=' italic text-xs md:text-lg'>{randomQuote()}</q>{' '}
+					<span className='text-blue-700 text-sm md:text-lg font-semibold'>
+						- Elon Musk
+					</span>
 				</div>
 			</div>
 		</div>
