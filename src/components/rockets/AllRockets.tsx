@@ -12,7 +12,7 @@ const AllRockets = () => {
 	const { data } = useRockets();
 	console.log(data);
 	return (
-		<div className='flex absolute justify-center items-end w-full space-x-8 md:space-x-36 pb-4 md:p-0 bottom-10 z-30 px-20 '>
+		<div className='flex absolute justify-center items-end w-full space-x-8 md:space-x-8 lg:space-x-36 pb-4 lg:p-0 bottom-10 z-30 px-20 md:pr-24 '>
 			<Link href={`/rockets/${data && data[0].id}`}>
 				<a className='flex flex-col items-center space-y-4'>
 					<Image
