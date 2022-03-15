@@ -19,7 +19,7 @@ const NavBar = () => {
 						onClick={() => {
 							setOpenSideBar(false);
 						}}
-						className='md:hidden relative left-1 cursor-pointer z-50'
+						className='md:hidden flex relative left-1 cursor-pointer z-50'
 					>
 						<VscChromeClose className='text-4xl text-stone-50' />
 					</div>
@@ -28,13 +28,13 @@ const NavBar = () => {
 						onClick={() => {
 							setOpenSideBar(true);
 						}}
-						className='md:hidden relative left-1 cursor-pointer'
+						className='md:hidden flex relative left-1 cursor-pointer'
 					>
 						<AiOutlineMenu className='text-4xl text-stone-50' />
 					</div>
 				)}
 				<div
-					className={`md:w-auto flex flex-col justify-center items-center space-y-10 md:space-y-0 md:flex-row fixed md:relative inset-y-0 right-0 bg-stone-900 md:bg-opacity-0 ins overflow-x-hidden md:space-x-20 text-stone-50 h-full ${
+					className={`md:w-auto flex flex-col justify-center items-center space-y-10 md:space-y-0 md:flex-row fixed md:relative inset-y-0 right-0 bg-stone-900 md:bg-opacity-0 overflow-x-hidden md:space-x-14 lg:space-x-20 text-stone-50 h-full ${
 						openSideBar ? 'w-60' : 'w-0'
 					}`}
 				>
