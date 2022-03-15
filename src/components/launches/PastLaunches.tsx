@@ -24,6 +24,7 @@ const PastLaunches = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
+			className='h-full'
 		>
 			{currentData &&
 				currentData
