@@ -14,7 +14,7 @@ const HomePage = () => {
 			animate='in'
 			exit='out'
 			variants={pageVariantsAnim}
-			className='flex flex-col justify-center items-center overflow-x-hidden w-full'
+			className='flex flex-col justify-center items-center overflow-x-hidden w-full h-full'
 		>
 			<NextLaunch />
 			<Launches />
