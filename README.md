@@ -11,6 +11,7 @@ Website built to display information on spaceX past and upcoming rocket launches
 - Tailwindcss
 - spaceX Api
 - Framer-motion
+- React-Query
 
 ## live link
 
