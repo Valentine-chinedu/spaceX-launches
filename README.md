@@ -13,6 +13,6 @@ Website built to display information on spaceX past and upcoming rocket launches
 - Framer-motion
 - React-Query
 
-## live link
+## live Application
 
 [live website](http://space-x-launches-iota.vercel.app/)
